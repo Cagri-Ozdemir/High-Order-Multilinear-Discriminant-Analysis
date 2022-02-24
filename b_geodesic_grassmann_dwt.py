@@ -31,10 +31,10 @@ Train_set = {}
 Test_set = {}
 k = 0
 kk = 0
-K_fold = pickle.load(open("Kfold_s.pkl","rb"))
+K_fold = pickle.load(open("Kfold_s.pkl","rb"))##!!!we apply 5-fold cross validation. As we want to use the same 5 sets for each method, we save the idex numbers!!!!!!.
 for i in range(num_class):
     #sel = random.sample(range(k1, k2), train_set_size)
-    sel = K_fold[3][0]
+    sel = K_fold[3][0]####!!!!!! Select K_fold[0][0] for the first set. K_fold[4][0] for the 5th set.!!!!!!!!!!!!!!!!!!!!!! 
     for ii in range(k1,k2):
         exists = ii in sel
         if exists == False:
