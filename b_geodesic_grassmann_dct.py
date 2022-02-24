@@ -34,7 +34,7 @@ kk = 0
 K_fold = pickle.load(open("Kfold_s.pkl","rb"))
 for i in range(num_class):
     #sel = random.sample(range(k1, k2), train_set_size)
-    sel = K_fold[1][0]
+    sel = K_fold[1][0] ##!!!we apply 5-fold cross validation. As we want to use the same 5 sets for each method, we save the idex numbers!!!!!!.
     for ii in range(k1,k2):
         exists = ii in sel
         if exists == False:
@@ -50,21 +50,6 @@ for i in range(num_class):
         else:
             continue
 
-
-######
-#subspaces = {}
-#k = 0
-#for j in range(9):
-#    d0,d1,d2 = Train_set[0+k].shape
-#    tensor = np.zeros((d0,d1,d2))
-#    tensor = Train_set[0+k]
-#    for ii in range(train_set_size-1):
-#        tensor = np.concatenate((tensor,Train_set[ii+1+k]),axis=2)
-#    u,s,v = tSVD(tensor)
-#    subspaces[j] = u
-#    k+=80
-
-########################
 ######create labels of training & testing sets#####
 k = 0
 Y_train = np.zeros((len(Train_set)))
