@@ -9,6 +9,11 @@ def stack_diag(A):
     for i in range(d2):
         B[i,:] = A[:,i,i]
     return B
+x = np.zeros((100))
+kf = KFold(n_splits=5, shuffle=True)
+kf.get_n_splits(x)
+s1,s2,s3,s4,s5 = kf.split(x)
+Kfold_s = [s1,s2,s3,s4,s5]
 import pickle
 class_1 = pickle.load(open("class_1.pkl", "rb"))
 class_2 = pickle.load(open("class_2.pkl", "rb"))
@@ -31,7 +36,6 @@ Train_set = {}
 Test_set = {}
 k = 0
 kk = 0
-K_fold = pickle.load(open("Kfold_s.pkl","rb"))##!!!we apply 5-fold cross validation. As we want to use the same 5 sets for each method, we save the idex numbers!!!!!!.
 for i in range(num_class):
     #sel = random.sample(range(k1, k2), train_set_size)
     sel = K_fold[1][0] ####!!!!!! Select K_fold[0][0] for the first set. K_fold[4][0] for the 5th set!!!!!!!!!!!!!!!!!!!!!!.
