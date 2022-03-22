@@ -76,8 +76,8 @@ for jj in range(len(Test_set)):
    ss1[ss1 > 1] = 1
    eigentuples = stack_diag(ss1)
    cos_thetas = np.arccos(eigentuples)**2
-   d1 = np.linalg.norm(np.sqrt(np.sum(cos_thetas, axis=0)))
-   #d1 = np.product(np.sqrt(np.sum(cos_thetas, axis=0)))
+   #d1 = np.linalg.norm(np.sqrt(np.sum(cos_thetas, axis=0)))
+   d1 = np.product(np.sqrt(np.sum(cos_thetas, axis=0)))
    distance[ii] = d1
   predicted_idx[jj] = np.argmin(distance)
 
